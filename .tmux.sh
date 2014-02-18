@@ -1,5 +1,5 @@
 #!/bin/sh
-echo "Startup scrIPT FOR tmux."
+echo "Startup script for tmux."
 
 
 
