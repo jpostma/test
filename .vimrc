@@ -38,3 +38,10 @@ endtry
 "special characters display
 set listchars=tab:>-,eol:<,nbsp:%,trail:.
 nnoremap <C-o> :set list!<CR>
+
+
+" Makefile building
+"map <F7> :w<CR>:make<CR>
+set autowrite
+map <C-b> :make!<CR>
+map <C-t> :copen<CR>
