@@ -12,8 +12,14 @@ nnoremap <silent> <C-w> :tabclose<CR>
 nnoremap <silent> <C-l> :tabn<CR>
 nnoremap <silent> <C-h> :tabp<CR>
 nnoremap <silent> <Esc> :let @/=""<CR>
+
 set ignorecase
 set smartcase
 set hlsearch
 set showcmd
 set wildmenu
+      
+
+"special characters display
+set listchars=tab:>-,eol:<,nbsp:%,trail:.
+nnoremap <C-o> :set list!<CR>
