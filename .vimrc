@@ -9,11 +9,11 @@ let maplocalleader = ","
 
 nnoremap <Esc><Esc> :w<CR>
 nnoremap <C-n> :NERDTreeToggle<CR>
-nnoremap <C-m> :NERDTreeFocus<CR>
+"nnoremap <C-m> :NERDTreeFocus<CR>
 
 nnoremap <C-p> :set hlsearch!<CR>
 
-noremap <C-k> <up>
+inoremap <C-k> <up>
 inoremap <C-j> <down>
 inoremap <C-h> <left>
 inoremap <C-l> <right>
