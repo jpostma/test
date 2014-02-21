@@ -11,7 +11,7 @@ nnoremap <Esc><Esc> :w<CR>
 nnoremap <C-n> :NERDTreeToggle<CR>
 "nnoremap <C-m> :NERDTreeFocus<CR>
 
-nnoremap <C-p> :set hlsearch!<CR>
+
 
 inoremap <C-k> <up>
 inoremap <C-j> <down>
@@ -42,6 +42,8 @@ endtry
 "special characters display
 set listchars=tab:>-,eol:<,nbsp:%,trail:.
 nnoremap <C-o> :set list!<CR>
+nnoremap <C-p> :set hlsearch!<CR>
+noremap <C-i> :set number!<CR>
 
 
 " Makefile building
