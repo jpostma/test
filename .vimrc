@@ -26,6 +26,7 @@ nnoremap <silent> <leader>d :tabn<CR>
 noremap <silent> <leader>a :tabp<CR>
 nnoremap <silent> <Esc> :let @/=""<CR>
 
+set nocompatible
 set ignorecase
 set smartcase
 set hlsearch
@@ -34,6 +35,14 @@ set wildmenu
 set incsearch
 set ruler
 set showmatch
+set autowrite
+set cindent
+
+" Mouse support for 
+" Must be one of: xterm, xterm2, netterm, dec, jsbterm, pterm
+set ttymouse=xterm2
+set mouse=a
+
 try
 	colorscheme evening
 catch
@@ -48,9 +57,14 @@ noremap <C-i> :set number!<CR>
 
 " Makefile building
 "map <F7> :w<CR>:make<CR>
-set autowrite
 map <leader>b :make!<CR>
 "map <C-t> :copen<CR>
+
+" Bash scripts
+map <F6> :w<CR> :!bash %<CR>
+
+" " Vim scripting
+map <C-R> :source ~/.vimrc<CR>
 
 function! GetBufferList()
 	redir =>buflist
