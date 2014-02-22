@@ -21,17 +21,6 @@ InstallVimPlugins() {
 		git clone https://github.com/honza/vim-snippets.git
 		git clone https://github.com/scrooloose/nerdtree.git
 	fi
-
-	read -p "Do you want to install NERDtree?" -n 1 -r echo
-	if [[  $REPLY =~ ^[Yy]$ ]]
-	then
-		echo "installing NERDtree."
-	fi	
-
-
-
-
-
 }
 
 InstallVimPlugins
