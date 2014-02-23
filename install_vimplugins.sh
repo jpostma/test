@@ -20,6 +20,7 @@ InstallVimPlugins() {
 	git clone https://github.com/honza/vim-snippets.git
 	git clone https://github.com/scrooloose/nerdtree.git
 	git clone git://github.com/tpope/vim-commentary.git
+	git clone https://github.com/scrooloose/syntastic.git
 	echo "Done!"
 }
 

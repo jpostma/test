@@ -95,3 +95,11 @@ endfunction
 
 map <silent> <leader>l :call ToggleList("Location List", 'l')<CR>
 map <silent> <leader>e :call ToggleList("Quickfix List", 'c')<CR>
+
+
+" syntastic
+nnoremap <leader>s :SyntasticCheck<CR>
+let g:syntastic_auto_loc_list=1
+let g:syntastic_disabled_filetypes=['html']
+let g:syntastic_enable_signs=1
+let g:syntastic_cpp_compiler_options = ' -std=c++0x'
