@@ -22,6 +22,7 @@ InstallVimPlugins() {
 	git clone git://github.com/tpope/vim-commentary.git
 	git clone https://github.com/scrooloose/syntastic.git
 	git clone https://github.com/xieyu/pyclewn.git
+	git clone https://github.com/vim-scripts/ctags.vim.git
 	echo "Done!"
 }
 
