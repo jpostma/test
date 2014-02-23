@@ -21,7 +21,9 @@ InstallVimPlugins() {
 	git clone https://github.com/scrooloose/nerdtree.git
 	git clone git://github.com/tpope/vim-commentary.git
 	git clone https://github.com/scrooloose/syntastic.git
+	git clone https://github.com/xieyu/pyclewn.git
 	echo "Done!"
 }
 
 InstallVimPlugins
+
