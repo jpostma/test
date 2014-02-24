@@ -20,6 +20,9 @@ inoremap <C-l> <right>
 
 
 nnoremap <silent> <C-q> :q<CR>
+
+" hi TabLineSel term=standout ctermfg=White ctermbg=Yellow guifg=Black guibg=Yellow
+" let TabLineSel:ctermfg=White
 nnoremap <silent> <leader>t :tabnew<CR>
 nnoremap <silent> <leader>w :tabclose<CR>
 nnoremap <silent> <leader>d :tabn<CR>
@@ -45,8 +48,12 @@ set ttymouse=xterm2
 set mouse=a
 
 try
-	colorscheme evening
+	colorscheme koehler
 catch
+	try
+		colorscheme evening
+	catch
+	endtry
 endtry
 
 "special characters display
@@ -97,6 +104,16 @@ endfunction
 map <silent> <leader>l :call ToggleList("Location List", 'l')<CR>
 map <silent> <leader>e :call ToggleList("Quickfix List", 'c')<CR>
 
+
+" function! GuiTabLabel()
+" 	return fnamemodify(bufname(winbufnr(1)), ":t")
+" endfunction
+" set guitablabel=hahaha
+" autocmd BufEnter * let &titlestring = expand("%:@")
+" set title
+
+" Ctrl-p search caching
+let g:ctrlp_show_hidden = 1
 
 " syntastic
 nnoremap <leader>s :SyntasticCheck<CR>
