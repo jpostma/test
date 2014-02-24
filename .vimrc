@@ -37,6 +37,7 @@ set ruler
 set showmatch
 set autowrite
 set cindent
+set switchbuf=useopen,usetab,newtab
 
 " Mouse support for 
 " Must be one of: xterm, xterm2, netterm, dec, jsbterm, pterm
