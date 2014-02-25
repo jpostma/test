@@ -12,7 +12,7 @@ nnoremap <C-n> :NERDTreeToggle<CR>
 "nnoremap <C-m> :NERDTreeFocus<CR>
 
 
-
+nnoremap Y y$
 inoremap <C-k> <up>
 inoremap <C-j> <down>
 inoremap <C-h> <left>
@@ -121,3 +121,8 @@ let g:syntastic_auto_loc_list=1
 let g:syntastic_disabled_filetypes=['html']
 let g:syntastic_enable_signs=1
 let g:syntastic_cpp_compiler_options = ' -std=c++0x'
+
+
+" ctags
+set tags+=~/.vim/tags
+au BufWritePost *.c,*.cpp,*.h !ctags -R
