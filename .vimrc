@@ -58,9 +58,9 @@ endtry
 
 "special characters display
 set listchars=tab:>-,eol:<,nbsp:%,trail:.
-nnoremap <C-o> :set list!<CR>
-nnoremap <C-p> :set hlsearch!<CR>
-noremap <C-i> :set number!<CR>
+nnoremap <leader>o :set list!<CR>
+nnoremap <leader>p :set hlsearch!<CR>
+noremap <leader>i :set number!<CR>
 
 
 " Makefile building
