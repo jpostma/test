@@ -8,8 +8,8 @@ let mapleader = ","
 let maplocalleader = ","
 
 nnoremap <Esc><Esc> :w<CR>
-nnoremap <C-n> :NERDTreeToggle<CR>
-"nnoremap <C-m> :NERDTreeFocus<CR>
+nnoremap <C-n> :NERDTreeTabsToggle<CR>
+"nnoremap <C-m> :NERDTreeTabsFocus<CR>
 
 
 nnoremap Y y$
@@ -129,11 +129,12 @@ inoremap <expr> k ((pumvisible())?("\<C-p>"):("k"))
 
 " ctags
 set tags+=~/.vim/tags
-au BufWritePost *.c,*.cpp,*.h !ctags -R
+" au BufWritePost *.c,*.cpp,*.h !ctags -R
 
 " clang_complete
 let g:clang_user_options='|| exit 0'
 let g:clang_complete_auto = 1
 let g:clang_complete_copen = 1
+let g:clang_snippets=1
 " let g:clang_library_path = '/usr/lib'
 set completefunc=ClangComplete

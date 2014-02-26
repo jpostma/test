@@ -19,6 +19,7 @@ InstallVimPlugins() {
 	git clone https://github.com/garbas/vim-snipmate.git
 	git clone https://github.com/honza/vim-snippets.git
 	git clone https://github.com/scrooloose/nerdtree.git
+	git clone https://github.com/jistr/vim-nerdtree-tabs.git
 	git clone git://github.com/tpope/vim-commentary.git
 	git clone https://github.com/scrooloose/syntastic.git
 	git clone https://github.com/xieyu/pyclewn.git
@@ -34,6 +35,6 @@ InstallVimPlugins() {
 
 InstallVimPlugins
 
-mkdir $HOME/.vim/colors -p
-cd $HOME/.vim/colors
-curl https://github.com/croaker/mustang-vim/blob/master/colors/mustang.vim
+# mkdir $HOME/.vim/colors -p
+# cd $HOME/.vim/colors
+# curl https://github.com/croaker/mustang-vim/blob/master/colors/mustang.vim
