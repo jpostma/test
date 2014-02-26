@@ -58,9 +58,11 @@ endtry
 
 "special characters display
 set listchars=tab:>-,eol:<,nbsp:%,trail:.
-nnoremap <leader>o :set list!<CR>
-nnoremap <leader>p :set hlsearch!<CR>
-noremap <leader>i :set number!<CR>
+nnoremap <silent> <leader>h :if exists("g:syntax_on") <Bar> syntax off <Bar> else <Bar>syntax enable <Bar> endif<CR>
+nnoremap <silent> <leader>j :set wrap!<CR>
+nnoremap <silent> <leader>o :set list!<CR>
+nnoremap <silent> <leader>p :set hlsearch!<CR>
+noremap <silent> <leader>i :set number!<CR>
 
 
 " Makefile building
@@ -95,6 +97,7 @@ function! ToggleList(bufname, pfx)
 		return
 	endif
 	let winnr = winnr()
+
 	exec(a:pfx.'open')
 	if winnr() != winnr
 		wincmd p
@@ -126,6 +129,8 @@ let g:syntastic_cpp_compiler_options = ' -std=c++0x'
 hi Pmenu ctermbg=3 ctermfg=White
 inoremap <expr> j ((pumvisible())?("\<C-n>"):("j"))
 inoremap <expr> k ((pumvisible())?("\<C-p>"):("k"))
+inoremap <expr> <CR> pumvisible() ? ("\<C-y>") : "\<C-g>u\<CR>"
+set completeopt=longest,menuone
 
 " ctags
 set tags+=~/.vim/tags
