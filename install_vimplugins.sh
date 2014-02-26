@@ -24,7 +24,12 @@ InstallVimPlugins() {
 	git clone https://github.com/xieyu/pyclewn.git
 	git clone https://github.com/vim-scripts/ctags.vim.git
 	git clone https://github.com/kien/ctrlp.vim.git
+	git clone https://github.com/Rip-Rip/clang_complete.git
 	echo "Done!"
+
+
+	cd $HOME/.vim/bundle/clang_complete
+	make install
 }
 
 InstallVimPlugins
