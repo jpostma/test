@@ -72,7 +72,7 @@ map <leader>b :make!<CR>
 map <F6> :w<CR> :!bash %<CR>
 
 " " Vim scripting
-map <C-R> :source ~/.vimrc<CR>
+" map <C-R> :source ~/.vimrc<CR>
 
 function! GetBufferList()
 	redir =>buflist
