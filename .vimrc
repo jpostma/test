@@ -122,7 +122,18 @@ let g:syntastic_disabled_filetypes=['html']
 let g:syntastic_enable_signs=1
 let g:syntastic_cpp_compiler_options = ' -std=c++0x'
 
+" General autocomplete helpers
+hi Pmenu ctermbg=3 ctermfg=White
+inoremap <expr> j ((pumvisible())?("\<C-n>"):("j"))
+inoremap <expr> k ((pumvisible())?("\<C-p>"):("k"))
 
 " ctags
 set tags+=~/.vim/tags
 au BufWritePost *.c,*.cpp,*.h !ctags -R
+
+" clang_complete
+let g:clang_user_options='|| exit 0'
+let g:clang_complete_auto = 1
+let g:clang_complete_copen = 1
+" let g:clang_library_path = '/usr/lib'
+set completefunc=ClangComplete

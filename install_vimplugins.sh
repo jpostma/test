@@ -29,3 +29,6 @@ InstallVimPlugins() {
 
 InstallVimPlugins
 
+mkdir $HOME/.vim/colors -p
+cd $HOME/.vim/colors
+curl https://github.com/croaker/mustang-vim/blob/master/colors/mustang.vim
