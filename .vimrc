@@ -76,6 +76,9 @@ map <F6> :w<CR> :!bash %<CR>
 " " Vim scripting
 " map <C-R> :source ~/.vimrc<CR>
 
+hi StatusLine   ctermfg=15  "ctermbg=239
+hi StatusLineNC ctermfg=249 ctermbg=237
+
 function! GetBufferList()
 	redir =>buflist
 	silent! ls
