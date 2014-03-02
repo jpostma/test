@@ -138,6 +138,8 @@ inoremap <expr> j ((pumvisible())?("\<C-n>"):("j"))
 inoremap <expr> k ((pumvisible())?("\<C-p>"):("k"))
 inoremap <expr> <CR> pumvisible() ? ("\<C-y>") : "\<C-g>u\<CR>"
 set completeopt=longest,menuone
+set conceallevel=2
+set concealcursor=inv
 
 " ctags
 set tags+=~/.vim/tags
@@ -148,5 +150,8 @@ let g:clang_user_options='|| exit 0'
 let g:clang_complete_auto = 1
 let g:clang_complete_copen = 1
 let g:clang_snippets=1
+let g:clang_snippets_engine = "clang_complete"
+let g:clang_conceal_snippets = 1
+
 " let g:clang_library_path = '/usr/lib'
 set completefunc=ClangComplete
