@@ -41,6 +41,7 @@ set showmatch
 set autowrite
 set cindent
 set switchbuf=useopen,usetab,newtab
+set number
 
 " Mouse support for 
 " Must be one of: xterm, xterm2, netterm, dec, jsbterm, pterm
@@ -120,6 +121,9 @@ map <silent> <leader>e :call ToggleList("Quickfix List", 'c')<CR>
 
 " Ctrl-p search caching
 let g:ctrlp_show_hidden = 1
+let g:ctrlp_max_files = 0
+let g:ctrlp_working_path_mode = 'rwa'
+let g:ctrlp_cmd = 'CtrlPMixed'
 
 " syntastic
 nnoremap <leader>s :SyntasticCheck<CR>
