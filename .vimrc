@@ -43,17 +43,25 @@ set cindent
 set switchbuf=useopen,usetab,newtab
 set number
 
+set t_Co=256
+"set t_AB=^[[48;5;%dm
+"set t_AF=^[[38;5;%dm
+
 " Mouse support for 
 " Must be one of: xterm, xterm2, netterm, dec, jsbterm, pterm
 set ttymouse=xterm2
 set mouse=a
 
 try
-	colorscheme koehler
+	colorscheme desert256
 catch
-	try
-		colorscheme evening
+try
+	colorscheme koehler
 	catch
+		try
+			colorscheme evening
+		catch
+		endtry
 	endtry
 endtry
 
