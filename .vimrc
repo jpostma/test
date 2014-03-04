@@ -53,14 +53,18 @@ set ttymouse=xterm2
 set mouse=a
 
 try
-	colorscheme desert256
+	colorscheme mustang
 catch
-try
-	colorscheme koehler
+	try
+		colorscheme desert256
 	catch
-		try
-			colorscheme evening
+	try
+		colorscheme koehler
 		catch
+			try
+				colorscheme evening
+			catch
+			endtry
 		endtry
 	endtry
 endtry
