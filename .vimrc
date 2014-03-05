@@ -23,8 +23,8 @@ nnoremap <silent> <C-q> :q<CR>
 
 " hi TabLineSel term=standout ctermfg=White ctermbg=Yellow guifg=Black guibg=Yellow
 " let TabLineSel:ctermfg=White
-nnoremap <silent> <leader>t :tabnew<CR>
-nnoremap <silent> <leader>w :tabclose<CR>
+" nnoremap <silent> <leader>t :tabnew<CR>
+" nnoremap <silent> <leader>w :tabclose<CR>
 nnoremap <silent> <leader>d :tabn<CR>
 noremap <silent> <leader>a :tabp<CR>
 nnoremap <silent> <Esc> :let @/=""<CR>
@@ -35,6 +35,7 @@ set smartcase
 set hlsearch
 set showcmd
 set wildmenu
+set wildmode=longest:full,full
 set incsearch
 set ruler
 set showmatch
@@ -80,8 +81,8 @@ noremap <silent> <leader>i :set number!<CR>
 
 
 " Makefile building
-"map <F7> :w<CR>:make<CR>
-map <leader>b :make!<CR>
+map <F7> :w<CR>:make<CR>
+"map <leader>b :make!<CR>
 "map <C-t> :copen<CR>
 
 " Bash scripts
@@ -121,8 +122,8 @@ function! ToggleList(bufname, pfx)
 	endif
 endfunction
 
-map <silent> <leader>l :call ToggleList("Location List", 'l')<CR>
-map <silent> <leader>e :call ToggleList("Quickfix List", 'c')<CR>
+map <silent> <leader>1 :call ToggleList("Location List", 'l')<CR>
+map <silent> <leader>2 :call ToggleList("Quickfix List", 'c')<CR>
 
 
 " function! GuiTabLabel()
@@ -137,6 +138,14 @@ let g:ctrlp_show_hidden = 1
 let g:ctrlp_max_files = 0
 let g:ctrlp_working_path_mode = 'rwa'
 let g:ctrlp_cmd = 'CtrlPMixed'
+
+"EasyMotion
+map <Leader> <Plug>(easymotion-prefix)
+hi link EasyMotionTarget ErrorMsg
+hi link EasyMotionShade  Comment
+
+hi link EasyMotionTarget2First MatchParen
+hi link EasyMotionTarget2Second MatchParen
 
 " syntastic
 nnoremap <leader>s :SyntasticCheck<CR>
@@ -162,11 +171,13 @@ set tags+=~/.vim/tags
 let g:clang_user_options='|| exit 0'
 let g:clang_complete_auto = 1
 let g:clang_complete_copen = 1
-let g:clang_use_library = 0
+" let g:clang_use_library = 0
 let g:clang_auto_select = 1
 let g:clang_snippets=1
 let g:clang_snippets_engine = "clang_complete"
 let g:clang_conceal_snippets = 1
+let g:clang_complete_snippets = 1
+
 
 " let g:clang_library_path = '/usr/lib'
 set completefunc=ClangComplete

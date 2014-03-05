@@ -26,6 +26,9 @@ InstallVimPlugins() {
 	git clone https://github.com/vim-scripts/ctags.vim.git
 	git clone https://github.com/kien/ctrlp.vim.git
 	git clone https://github.com/Rip-Rip/clang_complete.git
+	git clone https://github.com/dantler/vim-alternate.git
+	git clone https://github.com/Lokaltog/vim-easymotion.git
+	git clone https://github.com/jlanzarotta/bufexplorer.git
 	echo "Done!"
 
 
