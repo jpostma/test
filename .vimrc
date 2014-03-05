@@ -42,6 +42,7 @@ set autowrite
 set cindent
 set switchbuf=useopen,usetab,newtab
 set number
+set noautochdir
 
 set t_Co=256
 "set t_AB=^[[48;5;%dm
@@ -161,6 +162,8 @@ set tags+=~/.vim/tags
 let g:clang_user_options='|| exit 0'
 let g:clang_complete_auto = 1
 let g:clang_complete_copen = 1
+let g:clang_use_library = 0
+let g:clang_auto_select = 1
 let g:clang_snippets=1
 let g:clang_snippets_engine = "clang_complete"
 let g:clang_conceal_snippets = 1
