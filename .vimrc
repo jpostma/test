@@ -46,6 +46,7 @@ set switchbuf=split,useopen,usetab,newtab
 set number
 set noautochdir
 set hidden
+set wildignore=*/.git/*,*/.hg/*,*/.svn/*        " Linux/MacOSX
 
 set t_Co=256
 "set t_AB=^[[48;5;%dm
@@ -156,6 +157,9 @@ let g:ctrlp_show_hidden = 1
 let g:ctrlp_max_files = 0
 let g:ctrlp_working_path_mode = 'rwa'
 let g:ctrlp_cmd = 'CtrlPMixed'
+let g:ctrlp_use_caching = 1
+let g:ctrlp_clear_cache_on_exit = 0
+  let g:ctrlp_cache_dir = $HOME.'/.cache/ctrlp'
 
 "EasyMotion
 map <Leader> <Plug>(easymotion-prefix)
