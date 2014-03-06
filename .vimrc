@@ -4,6 +4,7 @@ syntax on
 filetype plugin indent on
 
 
+
 let mapleader = ","
 let maplocalleader = ","
 
@@ -41,9 +42,10 @@ set ruler
 set showmatch
 set autowrite
 set cindent
-set switchbuf=useopen,usetab,newtab
+set switchbuf=split,useopen,usetab,newtab
 set number
 set noautochdir
+set hidden
 
 set t_Co=256
 "set t_AB=^[[48;5;%dm
@@ -81,7 +83,7 @@ noremap <silent> <leader>i :set number!<CR>
 
 
 " Makefile building
-map <F7> :w<CR>:make<CR>
+map <F7> :w<CR>:make!<CR>
 "map <leader>b :make!<CR>
 "map <C-t> :copen<CR>
 
@@ -126,6 +128,22 @@ map <silent> <leader>1 :call ToggleList("Location List", 'l')<CR>
 map <silent> <leader>2 :call ToggleList("Quickfix List", 'c')<CR>
 
 
+" Search completion with grep
+" nmap <C-F> :noautocmd vimgrep input("Enter search pattern\n") *<CR>
+nmap <C-F> :call Vimgrep_Input()<CR>
+
+let user_inputsearchfilter = '**/*.cpp'
+function! Vimgrep_Input()
+	call inputsave()
+	let userinput = input("Enter your search pattern\n")
+	call inputrestore()
+	" silent noautocmd exe 'lvimgrep /' . userinput . '/jg **/*'
+	silent noautocmd exe 'vimgrep /' . userinput . '/jPP **/*.cpp **/*.h'
+	copen 15
+	" match Search '/' + userinput +'/'
+endfunction
+
+
 " function! GuiTabLabel()
 " 	return fnamemodify(bufname(winbufnr(1)), ":t")
 " endfunction
@@ -153,6 +171,10 @@ let g:syntastic_auto_loc_list=1
 let g:syntastic_disabled_filetypes=['html']
 let g:syntastic_enable_signs=1
 let g:syntastic_cpp_compiler_options = ' -std=c++0x'
+let g:syntastic_mode_map = { 'mode': 'passive',
+			\ 'active_filetypes': [],
+			\ 'passive_filetypes': [] }
+
 
 " General autocomplete helpers
 hi Pmenu ctermbg=3 ctermfg=White
@@ -165,7 +187,7 @@ set concealcursor=inv
 
 " ctags
 set tags+=~/.vim/tags
-" au BufWritePost *.c,*.cpp,*.h !ctags -R
+" au BufWritePost  *.c,*.cpp,*.h silent! !ctags -R &
 
 " clang_complete
 let g:clang_user_options='|| exit 0'
