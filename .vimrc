@@ -151,6 +151,17 @@ endfunction
 " set guitablabel=hahaha
 " autocmd BufEnter * let &titlestring = expand("%:@")
 " set title
+"
+
+" Minibuf explorer
+" map <Leader>e :MBEOpen<cr>
+" map <Leader>c :MBEClose<cr>
+" map <Leader>t :MBEToggle<cr>
+nnoremap <Leader>4 :MBEbn<cr>
+nnoremap <Leader>3 :MBEbp<cr>
+let g:miniBufExplAutoStart = 1
+let g:miniBufExplorerAutoStart = 1
+
 
 " Ctrl-p search caching
 let g:ctrlp_show_hidden = 1
@@ -201,6 +212,7 @@ let g:clang_complete_copen = 1
 let g:clang_auto_select = 1
 let g:clang_snippets=1
 let g:clang_snippets_engine = "clang_complete"
+" let g:clang_snippets_engine = "ultisnips"
 let g:clang_conceal_snippets = 1
 let g:clang_complete_snippets = 1
 

@@ -21,7 +21,7 @@ InstallVimPlugins() {
 	git clone https://github.com/scrooloose/nerdtree.git
 	git clone https://github.com/jistr/vim-nerdtree-tabs.git
 	git clone git://github.com/tpope/vim-commentary.git
-	git clone https://github.com/scrooloose/syntastic.git
+	git clone https://gitjjjhub.com/scrooloose/syntastic.git
 	git clone https://github.com/xieyu/pyclewn.git
 	git clone https://github.com/vim-scripts/ctags.vim.git
 	git clone https://github.com/kien/ctrlp.vim.git
@@ -30,6 +30,12 @@ InstallVimPlugins() {
 	git clone https://github.com/Lokaltog/vim-easymotion.git
 	git clone https://github.com/jlanzarotta/bufexplorer.git
 	echo "Done!"
+
+	for i in $HOME/.vim/bundle/*; do
+		pushd $i
+		git pull
+		popd
+	done
 
 
 	cd $HOME/.vim/bundle/clang_complete
