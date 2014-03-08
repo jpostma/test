@@ -29,6 +29,9 @@ InstallVimPlugins() {
 	git clone https://github.com/dantler/vim-alternate.git
 	git clone https://github.com/Lokaltog/vim-easymotion.git
 	git clone https://github.com/jlanzarotta/bufexplorer.git
+	git clone https://github.com/fholgado/minibufexpl.vim.git
+	git clone https://github.com/yssl/QFEnter.git
+	git clone https://github.com/vim-scripts/Conque-GDB.git
 	echo "Done!"
 
 	for i in $HOME/.vim/bundle/*; do

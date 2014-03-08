@@ -199,6 +199,8 @@ inoremap <expr> <CR> pumvisible() ? ("\<C-y>") : "\<C-g>u\<CR>"
 set completeopt=longest,menuone
 set conceallevel=2
 set concealcursor=inv
+set path+=/usr/include
+set path+=/usr/include/c++/4.6
 
 " ctags
 set tags+=~/.vim/tags
