@@ -131,7 +131,7 @@ map <silent> <leader>2 :call ToggleList("Quickfix List", 'c')<CR>
 
 " Search completion with grep
 " nmap <C-F> :noautocmd vimgrep input("Enter search pattern\n") *<CR>
-nmap <C-F> :call Vimgrep_Input()<CR>
+nmap <leader>vg :call Vimgrep_Input()<CR>
 
 let user_inputsearchfilter = '**/*.cpp'
 function! Vimgrep_Input()
@@ -139,9 +139,8 @@ function! Vimgrep_Input()
 	let userinput = input("Enter your search pattern\n")
 	call inputrestore()
 	" silent noautocmd exe 'lvimgrep /' . userinput . '/jg **/*'
-	silent noautocmd exe 'vimgrep /' . userinput . '/jPP **/*.cpp **/*.h'
+	silent exe 'vimgrep /' . userinput . '/jPP **/*.cpp **/*.h'
 	copen 15
-	" match Search '/' + userinput +'/'
 endfunction
 
 
@@ -153,10 +152,11 @@ endfunction
 " set title
 "
 
+"Conque(GDB) mapping
+nnoremap <leader>zsh :ConqueTermSplit zsh<cr>
+nnoremap <leader>bash :ConqueTermSplit bash<cr>
+
 " Minibuf explorer
-" map <Leader>e :MBEOpen<cr>
-" map <Leader>c :MBEClose<cr>
-" map <Leader>t :MBEToggle<cr>
 nnoremap <Leader>4 :MBEbn<cr>
 nnoremap <Leader>3 :MBEbp<cr>
 let g:miniBufExplAutoStart = 1
@@ -214,7 +214,6 @@ let g:clang_complete_copen = 1
 let g:clang_auto_select = 1
 let g:clang_snippets=1
 let g:clang_snippets_engine = "clang_complete"
-" let g:clang_snippets_engine = "ultisnips"
 let g:clang_conceal_snippets = 1
 let g:clang_complete_snippets = 1
 
