@@ -13,11 +13,24 @@ nnoremap <C-n> :NERDTreeTabsToggle<CR>
 "nnoremap <C-m> :NERDTreeTabsFocus<CR>
 
 
+" behave Y like D,E,C
 nnoremap Y y$
+
+" Enable movement in insert mode
 inoremap <C-k> <up>
 inoremap <C-j> <down>
 inoremap <C-h> <left>
 inoremap <C-l> <right>
+
+" Quick way of moving between windows
+nnoremap <C-k> <C-W>k
+nnoremap <C-j> <C-W>j
+nnoremap <C-h> <C-W>h
+nnoremap <C-l> <C-W>l
+
+" Move by screen line instead of logical line
+map j gj
+map k gk
 
 
 nnoremap <silent> <C-q> :q<CR>
@@ -40,13 +53,16 @@ set wildmode=longest:full,full
 set incsearch
 set ruler
 set showmatch
+set matchtime=2
 set autowrite
 set cindent
 set switchbuf=split,useopen,usetab,newtab
 set number
 set noautochdir
 set hidden
-set wildignore=*/.git/*,*/.hg/*,*/.svn/*        " Linux/MacOSX
+set wildignore=*/.git/*,*/.hg/*,*/.svn/*,*.o,tags        " Linux/MacOSX
+set lazyredraw
+set history=500
 
 set t_Co=256
 "set t_AB=^[[48;5;%dm
