@@ -63,6 +63,8 @@ set hidden
 set wildignore=*/.git/*,*/.hg/*,*/.svn/*,*.o,tags        " Linux/MacOSX
 set lazyredraw
 set history=500
+set scrolloff=7
+set foldmethod=syntax
 
 set t_Co=256
 "set t_AB=^[[48;5;%dm
