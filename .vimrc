@@ -66,9 +66,10 @@ set history=500
 set scrolloff=7
 set foldmethod=syntax
 
+" Automatically unfold everything when opening a file
+autocmd BufRead * normal zR
+
 set t_Co=256
-"set t_AB=^[[48;5;%dm
-"set t_AF=^[[38;5;%dm
 
 " Mouse support for 
 " Must be one of: xterm, xterm2, netterm, dec, jsbterm, pterm
@@ -81,15 +82,7 @@ catch
 	try
 		colorscheme desert256
 	catch
-	try
-		colorscheme koehler
-		catch
-			try
-				colorscheme evening
-			catch
-			endtry
-		endtry
-	endtry
+	endtr
 endtry
 
 "special characters display
@@ -162,13 +155,6 @@ function! Vimgrep_Input()
 endfunction
 
 
-" function! GuiTabLabel()
-" 	return fnamemodify(bufname(winbufnr(1)), ":t")
-" endfunction
-" set guitablabel=hahaha
-" autocmd BufEnter * let &titlestring = expand("%:@")
-" set title
-"
 
 "Conque(GDB) mapping
 nnoremap <leader>zsh :ConqueTermSplit zsh<cr>
@@ -219,6 +205,7 @@ set conceallevel=2
 set concealcursor=inv
 set path+=/usr/include
 set path+=/usr/include/c++/4.6
+set path+=$PWD/**
 
 " ctags
 set tags+=~/.vim/tags
