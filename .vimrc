@@ -95,6 +95,8 @@ noremap <silent> <leader>i :set number!<CR>
 
 
 " Makefile building
+" set makeprg=make\ CXX=\"$HOME\/.vim/bin\/cc_args.py\ g++\"\ CCC=\"$HOME\/.vim/bin\/cc_args.py\ gcc\"
+			\
 map <F7> :w<CR>:make!<CR>
 "map <leader>b :make!<CR>
 "map <C-t> :copen<CR>
