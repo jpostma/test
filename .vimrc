@@ -144,7 +144,8 @@ map <silent> <leader>2 :call ToggleList("Quickfix List", 'c')<CR>
 
 " Search completion with grep
 " nmap <C-F> :noautocmd vimgrep input("Enter search pattern\n") *<CR>
-nmap <leader>vg :call Vimgrep_Input()<CR>
+nnoremap <leader>k :call Vimgrep_Input()<CR>
+nnoremap <leader>K :silent exe 'vimgrep /' . expand("<cword>"). '/jPP *'<CR>
 
 let user_inputsearchfilter = '**/*.cpp'
 function! Vimgrep_Input()
