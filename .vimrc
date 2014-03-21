@@ -1,4 +1,5 @@
-execute pathogen#incubate()
+" execute pathogen#incubate()
+execute pathogen#interpose('bundle/{}')
 execute pathogen#helptags()
 syntax on
 filetype plugin indent on
