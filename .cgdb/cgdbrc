@@ -1,0 +1,5 @@
+set arrowstyle=long
+set autosourcereload
+set ignorecase
+set showtgdbcommands
+set syntax=c
