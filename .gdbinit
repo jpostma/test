@@ -4,5 +4,4 @@ set p union on
 set p address on
 set p pretty on
 set p object on
-set radix 16
-set confirm 0
+set env LD_PRELOAD /lib/x86_64-linux-gnu/libpthread.so.0
