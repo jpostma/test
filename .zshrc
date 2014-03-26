@@ -83,3 +83,6 @@ alias ll='ls -alF'
 alias la='ls -A'
 alias l='ls -CF'
 alias lsa='ls -l'
+#
+#less aliases
+alias less='less -R'
