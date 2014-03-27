@@ -68,6 +68,12 @@ alias egrep='egrep --color=auto'
 
 
 alias cd..='cd ..' # i something mistype this:)
+alias ..='cd ..'
+alias ..2='cd ../..'
+alias ..3='cd ../../..'
+alias ..4='cd ../../../..'
+alias ..5='cd ../../../../..'
+
 alias fc='find . -iname'
 alias f='find . -name'
 

@@ -87,6 +87,12 @@ alias la='ls -A'
 alias l='ls -CF'
 # i something mistype this:)
 alias cd..='cd ..' 
+alias ..='cd ..'
+alias ..2='cd ../..'
+alias ..3='cd ../../..'
+alias ..4='cd ../../../..'
+alias ..5='cd ../../../../..'
+
 alias fc='find . -iname'
 alias f='find . -name'
 
