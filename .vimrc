@@ -98,7 +98,7 @@ noremap <silent> <leader>i :set number!<CR>
 " Makefile building
 set makeprg=make\ CXX=\"$HOME\/.vim/bin\/cc_args.py\ g++\"\ CCC=\"$HOME\/.vim/bin\/cc_args.py\ gcc\"
 			\
-map <F7> :w<CR>:make!<CR>
+map <C-b> :wa<CR>:make!<CR>
 "map <leader>b :make!<CR>
 "map <C-t> :copen<CR>
 
@@ -133,14 +133,14 @@ function! ToggleList(bufname, pfx)
 	endif
 	let winnr = winnr()
 
-	exec(a:pfx.'open')
+	exec('botright '.a:pfx.'open')
 	if winnr() != winnr
 		wincmd p
 	endif
 endfunction
 
-map <silent> <leader>1 :call ToggleList("Location List", 'l')<CR>
-map <silent> <leader>2 :call ToggleList("Quickfix List", 'c')<CR>
+map <silent> <leader>l :call ToggleList("Location List", 'l')<CR>
+map <silent> <leader>q :call ToggleList("Quickfix List", 'c')<CR>
 
 
 " Search completion with grep
@@ -178,7 +178,7 @@ let g:ctrlp_working_path_mode = 'rwa'
 let g:ctrlp_cmd = 'CtrlPMixed'
 let g:ctrlp_use_caching = 1
 let g:ctrlp_clear_cache_on_exit = 0
-  let g:ctrlp_cache_dir = $HOME.'/.cache/ctrlp'
+let g:ctrlp_cache_dir = $HOME.'/.cache/ctrlp'
 
 "EasyMotion
 map <Leader> <Plug>(easymotion-prefix)
