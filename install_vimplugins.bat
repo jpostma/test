@@ -4,17 +4,19 @@ echo "Installing favorite vim plugins for windows"
 
 echo "install now"
 
+mkdir "%ProgramFiles(x86)%\Vim\vimfiles\bundle"
+mkdir "%ProgramFiles(x86)%\Vim\vimfiles\autoload"
 echo "installing pathogen. %ProgramFiles(x86)%\Vim\vimfiles"
-if exist %ProgramFiles(x86)%\Vim\vimfiles\bundle (
-	pushd %ProgramFiles(x86)%\Vim\vimfiles\autoload
+if exist "%ProgramFiles(x86)%\Vim\vimfiles\bundle" (
+	pushd "%ProgramFiles(x86)%\Vim\vimfiles\autoload"
 	@rem curl -Sso pathogen.vim https://raw.github.com/tpope/vim-pathogen/master/autoload/pathogen.vim
 	call curl -L https://raw.github.com/tpope/vim-pathogen/master/autoload/pathogen.vim > pathogen.vim
 	popd
 )
 
-if exist %ProgramFiles(x86)%\Vim\vimfiles\autoload (
+if exist "%ProgramFiles(x86)%\Vim\vimfiles\autoload" (
 	echo "Installing lots of other plugins..."
-	pushd %ProgramFiles(x86)%\Vim\vimfiles\bundle
+	pushd "%ProgramFiles(x86)%\Vim\vimfiles\bundle"
 	git clone https://github.com/tomtom/tlib_vim.git
 	git clone https://github.com/MarcWeber/vim-addon-mw-utils.git
 	git clone https://github.com/garbas/vim-snipmate.git
