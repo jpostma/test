@@ -10,7 +10,7 @@ InstallVimPlugins() {
 	mkdir $HOME/.vim/autoload -p
 
 	cd $HOME/.vim/autoload
-	curl -Sso $HOME/.vim/autoload/pathogen.vim https://raw.github.com/tpope/vim-pathogen/master/autoload/pathogen.vim
+	curl -L https://raw.github.com/tpope/vim-pathogen/master/autoload/pathogen.vim > pathogen.vim
 
 	echo "Installing lots of other plugins..."
 	cd $HOME/.vim/bundle
