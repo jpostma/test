@@ -75,6 +75,9 @@ set foldmethod=syntax
 autocmd BufRead * normal zR
 
 set t_Co=256
+set guifont=Consolas:h12
+set backspace=indent,eol,start
+behave mswin
 
 " Mouse support for 
 " Must be one of: xterm, xterm2, netterm, dec, jsbterm, pterm
@@ -220,16 +223,16 @@ set tags+=~/.vim/tags
 " au BufWritePost  *.c,*.cpp,*.h silent! !ctags -R &
 
 " clang_complete
-let g:clang_user_options='|| exit 0'
-let g:clang_complete_auto = 1
-let g:clang_complete_copen = 1
-" let g:clang_use_library = 0
-let g:clang_auto_select = 1
-let g:clang_snippets=1
-let g:clang_snippets_engine = "clang_complete"
-let g:clang_conceal_snippets = 1
-let g:clang_complete_snippets = 1
+" let g:clang_user_options='|| exit 0'
+" let g:clang_complete_auto = 1
+" let g:clang_complete_copen = 1
+" " let g:clang_use_library = 0
+" let g:clang_auto_select = 1
+" let g:clang_snippets=1
+" let g:clang_snippets_engine = "clang_complete"
+" let g:clang_conceal_snippets = 1
+" let g:clang_complete_snippets = 1
 
 
 " let g:clang_library_path = '/usr/lib'
-set completefunc=ClangComplete
+" set completefunc=ClangComplete
