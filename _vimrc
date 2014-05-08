@@ -74,8 +74,12 @@ set foldmethod=syntax
 " Automatically unfold everything when opening a file
 autocmd BufRead * normal zR
 
-set t_Co=256
-set guifont=Consolas:h12
+if has("gui_running") 
+	set guifont=Consolas:h10
+	set lines=99999 columns=99999
+else
+	set t_Co=256
+endif
 set backspace=indent,eol,start
 behave mswin
 
@@ -85,12 +89,16 @@ set ttymouse=xterm2
 set mouse=a
 
 try
-	colorscheme mustang
+		colorscheme skittles_berry
 catch
 	try
-		colorscheme desert256
+		colorscheme mustang
 	catch
-	endtr
+		try
+			colorscheme desert256
+		catch
+		endtr
+	endtry
 endtry
 
 "special characters display

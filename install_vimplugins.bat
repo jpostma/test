@@ -6,6 +6,7 @@ echo "install now"
 
 mkdir "%ProgramFiles(x86)%\Vim\vimfiles\bundle"
 mkdir "%ProgramFiles(x86)%\Vim\vimfiles\autoload"
+
 echo "installing pathogen. %ProgramFiles(x86)%\Vim\vimfiles"
 if exist "%ProgramFiles(x86)%\Vim\vimfiles\bundle" (
 	pushd "%ProgramFiles(x86)%\Vim\vimfiles\autoload"
@@ -28,7 +29,7 @@ if exist "%ProgramFiles(x86)%\Vim\vimfiles\autoload" (
 	git clone https://github.com/xieyu/pyclewn.git
 	git clone https://github.com/vim-scripts/ctags.vim.git
 	git clone https://github.com/kien/ctrlp.vim.git
-	git clone https://github.com/Rip-Rip/clang_complete.git
+	@rem git clone https://github.com/Rip-Rip/clang_complete.git
 	git clone https://github.com/dantler/vim-alternate.git
 	git clone https://github.com/Lokaltog/vim-easymotion.git
 	git clone https://github.com/jlanzarotta/bufexplorer.git
