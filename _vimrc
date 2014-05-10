@@ -71,6 +71,10 @@ set history=500
 set scrolloff=7
 set foldmethod=syntax
 
+set ts=4
+set expandtab
+set shiftwidth=4
+
 " Automatically unfold everything when opening a file
 autocmd BufRead * normal zR
 
