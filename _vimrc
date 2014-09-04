@@ -11,7 +11,10 @@ if has("autocmd")
     filetype plugin indent on
 endif
 set cindent
-"set smartindent
+"set autoindent
+set ts=4
+set shiftwidth=4
+
 
 let mapleader = ","
 let maplocalleader = ","
@@ -63,7 +66,6 @@ set ruler
 set showmatch
 set matchtime=2
 set autowrite
-set autoindent
 set switchbuf=split,useopen,usetab
 set number
 set noautochdir
@@ -105,7 +107,7 @@ catch
 endtry
 
 "special characters display
-set listchars=tab:>-,eol:<,nbsp:%,trail:.
+set listchars=tab:>-,eol:<,nbsp:%,trail:-
 nnoremap <silent> <leader>h :if exists("g:syntax_on") <Bar> syntax off <Bar> else <Bar>syntax enable <Bar> endif<CR>
 nnoremap <silent> <leader>j :set wrap!<CR>
 nnoremap <silent> <leader>o :set list!<CR>
