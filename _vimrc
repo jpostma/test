@@ -6,9 +6,12 @@ execute pathogen#helptags()
 
 " execute pathogen#infect()
 syntax on
-filetype plugin indent on
-
-
+if has("autocmd")
+    filetype indent on
+    filetype plugin indent on
+endif
+set cindent
+"set smartindent
 
 let mapleader = ","
 let maplocalleader = ","
@@ -60,7 +63,7 @@ set ruler
 set showmatch
 set matchtime=2
 set autowrite
-set cindent
+set autoindent
 set switchbuf=split,useopen,usetab
 set number
 set noautochdir
@@ -70,10 +73,6 @@ set lazyredraw
 set history=500
 set scrolloff=7
 set foldmethod=syntax
-
-set ts=4
-set expandtab
-set shiftwidth=4
 
 " Automatically unfold everything when opening a file
 autocmd BufRead * normal zR
@@ -85,7 +84,7 @@ else
 	set t_Co=256
 endif
 set backspace=indent,eol,start
-behave mswin
+"behave mswin
 
 " Mouse support for 
 " Must be one of: xterm, xterm2, netterm, dec, jsbterm, pterm
