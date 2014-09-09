@@ -89,10 +89,10 @@ endtry
 "special characters display
 set listchars=tab:>-,eol:<,nbsp:%,trail:.
 nnoremap <silent> <leader>h :if exists("g:syntax_on") <Bar> syntax off <Bar> else <Bar>syntax enable <Bar> endif<CR>
-nnoremap <silent> <leader>j :set wrap!<CR>
-nnoremap <silent> <leader>o :set list!<CR>
-nnoremap <silent> <leader>p :set hlsearch!<CR>
-noremap <silent> <leader>i :set number!<CR>
+nnoremap <silent> <leader>j :set wrap! wrap?<CR>
+nnoremap <silent> <leader>o :set list! list?<CR>
+nnoremap <silent> <leader>p :set hlsearch! hlsearch?<CR>
+noremap <silent> <leader>i :set number! number?<CR>
 
 
 " Makefile building
@@ -229,3 +229,30 @@ let g:clang_complete_snippets = 1
 
 " let g:clang_library_path = '/usr/lib'
 set completefunc=ClangComplete
+" Differation keybinding
+let g:whitespace_diff=1
+nnoremap <silent> <Leader>df :call DiffToggle()<CR>
+nnoremap <silent> <Leader>dw :call WhiteDiffToggle()<CR>
+
+" Define a function called DiffToggle.
+function! DiffToggle()
+	if &diff
+		echo "Diff off"
+		diffoff
+	else
+		echo "Diff on"
+		diffthis
+	endif
+endfunction
+
+function! WhiteDiffToggle()
+	if g:whitespace_diff
+		echo "Diff off"
+		let g:whitespace_diff=0
+		set diffopt+=iwhite
+	else
+		echo "Diff on"
+		let g:whitespace_diff=1
+		set diffopt-=iwhite
+	endif
+endfunction
