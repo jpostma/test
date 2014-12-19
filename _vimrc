@@ -75,9 +75,15 @@ set lazyredraw
 set history=500
 set scrolloff=7
 set foldmethod=syntax
+set nobackup
+set noswapfile
 
-" Automatically unfold everything when opening a file
-autocmd BufRead * normal zR
+if has("autocmd")
+	" Automatically unfold everything when opening a file
+	autocmd BufRead * normal zR
+
+	autocmd filetype python set expandtab
+endif
 
 if has("gui_running") 
 	set guifont=Consolas:h10
@@ -126,7 +132,8 @@ map <C-b> :wa<CR>:make!<CR>
 map <F6> :w<CR> :!bash %<CR>
 
 " " Vim scripting
-" map <C-R> :source ~/.vimrc<CR>
+nmap <silent> <leader>sv  :source $MYVIMRC<CR>
+nmap <silent> <leader>ev  :e $MYVIMRC<CR>
 
 hi StatusLine   ctermfg=15  "ctermbg=239
 hi StatusLineNC ctermfg=249 ctermbg=237
