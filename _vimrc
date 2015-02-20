@@ -286,3 +286,5 @@ function! WhiteDiffToggle()
 		set diffopt-=iwhite
 	endif
 endfunction
+
+source $VIMRUNTIME/mswin.vim
