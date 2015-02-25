@@ -1,8 +1,5 @@
-" execute pathogen#incubate()
 execute pathogen#interpose('bundle/{}')
 execute pathogen#helptags()
-"call pathogen#runtime_append_all_bundles()
-"call pathogen#helptags()
 
 " execute pathogen#infect()
 syntax on
@@ -186,11 +183,6 @@ function! Vimgrep_Input()
 endfunction
 
 
-
-"Conque(GDB) mapping
-nnoremap <leader>zsh :ConqueTermSplit zsh<cr>
-nnoremap <leader>bash :ConqueTermSplit bash<cr>
-
 " Minibuf explorer
 nnoremap <Leader>4 :MBEbn<cr>
 nnoremap <Leader>3 :MBEbp<cr>
@@ -215,16 +207,6 @@ hi link EasyMotionShade  Comment
 hi link EasyMotionTarget2First MatchParen
 hi link EasyMotionTarget2Second MatchParen
 
-" syntastic
-nnoremap <leader>s :SyntasticCheck<CR>
-let g:syntastic_auto_loc_list=1
-let g:syntastic_disabled_filetypes=['html']
-let g:syntastic_enable_signs=1
-let g:syntastic_cpp_compiler_options = ' -std=c++0x'
-let g:syntastic_mode_map = { 'mode': 'passive',
-			\ 'active_filetypes': [],
-			\ 'passive_filetypes': [] }
-
 
 " General autocomplete helpers
 hi Pmenu ctermbg=3 ctermfg=White
@@ -241,23 +223,6 @@ set path+=$PWD/**
 " ctags
 set tags+=~/.vim/tags
 " au BufWritePost  *.c,*.cpp,*.h silent! !ctags -R &
-
-" clang_complete
-" let g:clang_user_options='|| exit 0'
-" let g:clang_complete_auto = 1
-" let g:clang_complete_copen = 1
-" " let g:clang_use_library = 0
-" let g:clang_auto_select = 1
-" let g:clang_snippets=1
-" let g:clang_snippets_engine = "clang_complete"
-" let g:clang_conceal_snippets = 1
-" let g:clang_complete_snippets = 1
-
-
-" let g:clang_library_path = '/usr/lib'
-" set completefunc=ClangComplete
-"
-"
 
 " Differation keybinding
 let g:whitespace_diff=1
