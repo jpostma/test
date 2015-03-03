@@ -79,7 +79,8 @@ if has("autocmd")
 	" Automatically unfold everything when opening a file
 	autocmd BufRead * normal zR
 
-	autocmd filetype python set expandtab
+	autocmd filetype python setlocal expandtab
+	autocmd filetype cs setlocal cindent
 endif
 
 if has("gui_running") 
@@ -252,4 +253,8 @@ function! WhiteDiffToggle()
 	endif
 endfunction
 
-source $VIMRUNTIME/mswin.vim
+if has('win32')
+  " Avoid mswin.vim making Ctrl-v act as paste
+  source $VIMRUNTIME/mswin.vim
+  nnoremap <C-V> <C-V>
+endif
