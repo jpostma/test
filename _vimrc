@@ -257,4 +257,5 @@ if has('win32')
   " Avoid mswin.vim making Ctrl-v act as paste
   source $VIMRUNTIME/mswin.vim
   nnoremap <C-V> <C-V>
+  nnoremap <C-Y> <C-Y>
 endif
