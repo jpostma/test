@@ -263,3 +263,8 @@ function! WhiteDiffToggle()
 		set diffopt-=iwhite
 	endif
 endfunction
+
+"Tab navigation
+nnoremap <C-t> :tabnew<CR>
+nnoremap <C-tab> :tabnext<CR>
+nnoremap <C-S-tab> :tabprevious<CR>

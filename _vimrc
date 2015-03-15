@@ -19,6 +19,7 @@ let maplocalleader = ","
 nnoremap <Esc><Esc> :w<CR>
 nnoremap <C-n> :NERDTreeTabsToggle<CR>
 "nnoremap <C-m> :NERDTreeTabsFocus<CR>
+"
 
 
 " behave Y like D,E,C
@@ -122,12 +123,11 @@ noremap <silent> <leader>i :set number! number?<CR>
 " Makefile building
 set makeprg=make\ CXX=\"$HOME\/.vim/bin\/cc_args.py\ g++\"\ CCC=\"$HOME\/.vim/bin\/cc_args.py\ gcc\"
 			\
+"Not sure for windows!!!!!?
 map <C-b> :wa<CR>:make!<CR>
-"map <leader>b :make!<CR>
-"map <C-t> :copen<CR>
-
+"
 " Bash scripts
-map <F6> :w<CR> :!bash %<CR>
+map <F6> :w<CR> :!"%:p"<CR>
 
 " " Vim scripting
 nmap <silent> <leader>sv  :source $MYVIMRC<CR>
@@ -259,3 +259,8 @@ if has('win32')
   nnoremap <C-V> <C-V>
   nnoremap <C-Y> <C-Y>
 endif
+
+"Tab navigation
+nnoremap <C-t> :tabnew<CR>
+nnoremap <C-tab> :tabnext<CR>
+nnoremap <C-S-tab> :tabprevious<CR>
