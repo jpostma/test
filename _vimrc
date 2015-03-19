@@ -7,10 +7,6 @@ if has("autocmd")
     filetype indent on
     filetype plugin indent on
 endif
-set cindent
-"set autoindent
-set ts=4
-set shiftwidth=4
 
 
 let mapleader = ","
@@ -18,9 +14,6 @@ let maplocalleader = ","
 
 nnoremap <Esc><Esc> :w<CR>
 nnoremap <C-n> :NERDTreeTabsToggle<CR>
-"nnoremap <C-m> :NERDTreeTabsFocus<CR>
-"
-
 
 " behave Y like D,E,C
 nnoremap Y y$
@@ -48,10 +41,13 @@ nnoremap <silent> <C-q> :q<CR>
 " let TabLineSel:ctermfg=White
 " nnoremap <silent> <leader>t :tabnew<CR>
 " nnoremap <silent> <leader>w :tabclose<CR>
-nnoremap <silent> <leader>d :tabn<CR>
-noremap <silent> <leader>a :tabp<CR>
 nnoremap <silent> <Esc> :let @/=""<CR>
+nnoremap  <leader>cd :cd %:p:h<CR>
 
+set cindent
+"set autoindent
+set ts=4
+set shiftwidth=4
 set nocompatible
 set ignorecase
 set smartcase
@@ -127,7 +123,7 @@ set makeprg=make\ CXX=\"$HOME\/.vim/bin\/cc_args.py\ g++\"\ CCC=\"$HOME\/.vim/bi
 map <C-b> :wa<CR>:make!<CR>
 "
 " Bash scripts
-map <F6> :w<CR> :!"%:p"<CR>
+map <F6> :wa<CR> :!"%:p"<CR>
 
 " " Vim scripting
 nmap <silent> <leader>sv  :source $MYVIMRC<CR>
@@ -194,6 +190,7 @@ let g:miniBufExplorerAutoStart = 1
 " Ctrl-p search caching
 let g:ctrlp_show_hidden = 1
 let g:ctrlp_max_files = 0
+let g:ctrlp_max_history = 0
 let g:ctrlp_working_path_mode = 'rwa'
 let g:ctrlp_cmd = 'CtrlPMixed'
 let g:ctrlp_use_caching = 1
@@ -217,9 +214,9 @@ inoremap <expr> <CR> pumvisible() ? ("\<C-y>") : "\<C-g>u\<CR>"
 set completeopt=longest,menuone
 set conceallevel=2
 set concealcursor=inv
-set path+=/usr/include
-set path+=/usr/include/c++/4.6
-set path+=$PWD/**
+"set path+=/usr/include
+"set path+=/usr/include/c++/4.6
+"set path+=$PWD/**
 
 " ctags
 set tags+=~/.vim/tags
@@ -261,6 +258,8 @@ if has('win32')
 endif
 
 "Tab navigation
-nnoremap <C-t> :tabnew<CR>
-nnoremap <C-tab> :tabnext<CR>
-nnoremap <C-S-tab> :tabprevious<CR>
+nnoremap <silent> <C-t> :tabnew<CR>
+nnoremap <silent> <C-tab> :tabnext<CR>
+nnoremap <silent> <C-S-tab> :tabprevious<CR>
+nnoremap <silent> <leader>d :tabn<CR>
+noremap <silent> <leader>a :tabp<CR>
