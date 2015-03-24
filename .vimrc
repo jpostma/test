@@ -1,18 +1,7 @@
-source $HOME/vimrc_common
-
-" execute pathogen#incubate()
 execute pathogen#interpose('bundle/{}')
 execute pathogen#helptags()
-syntax on
-filetype plugin indent on
 
-if has("autocmd")
-	" Automatically unfold everything when opening a file
-	autocmd BufRead * normal zR
-	autocmd filetype python set expandtab
-endif
-
-set t_Co=256
+source $HOME/vimrc_common
 
 " Mouse support for 
 " Must be one of: xterm, xterm2, netterm, dec, jsbterm, pterm
@@ -29,43 +18,10 @@ map <C-b> :wa<CR>:make!<CR>
 " Bash scripts
 map <F6> :w<CR> :!bash %<CR>
 
-" " Vim scripting
-nmap <silent> <leader>sv  :source $MYVIMRC<CR>
-nmap <silent> <leader>ev  :e $MYVIMRC<CR>
 
 hi StatusLine   ctermfg=15  "ctermbg=239
 hi StatusLineNC ctermfg=249 ctermbg=237
 
-function! GetBufferList()
-	redir =>buflist
-	silent! ls
-	redir END
-	return buflist
-endfunction
-
-function! ToggleList(bufname, pfx)
-	let buflist = GetBufferList()
-	for bufnum in map(filter(split(buflist, '\n'), 'v:val =~ "'.a:bufname.'"'), 'str2nr(matchstr(v:val, "\\d\\+"))')
-		if bufwinnr(bufnum) != -1
-			exec(a:pfx.'close')
-			return
-		endif
-	endfor
-	if a:pfx == 'l' && len(getloclist(0)) == 0
-		echohl ErrorMsg
-		echo "Location List is Empty."
-		return
-	endif
-	let winnr = winnr()
-
-	exec('botright '.a:pfx.'open')
-	if winnr() != winnr
-		wincmd p
-	endif
-endfunction
-
-map <silent> <leader>l :call ToggleList("Location List", 'l')<CR>
-map <silent> <leader>q :call ToggleList("Quickfix List", 'c')<CR>
 
 
 " Search completion with grep

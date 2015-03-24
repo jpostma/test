@@ -1,90 +1,17 @@
-source $HOME/vimrc_common
-
 execute pathogen#interpose('bundle/{}')
 execute pathogen#helptags()
 
-" execute pathogen#infect()
-syntax on
-if has("autocmd")
-    filetype indent on
-    filetype plugin indent on
-endif
+" Must explicetly source from ~ since $HOME isn't supported in plugins like VsVim
+source ~/vimrc_common
 
 nnoremap <silent> <C-q> :q<CR>
 
-" hi TabLineSel term=standout ctermfg=White ctermbg=Yellow guifg=Black guibg=Yellow
-" let TabLineSel:ctermfg=White
-" nnoremap <silent> <leader>t :tabnew<CR>
-" nnoremap <silent> <leader>w :tabclose<CR>
-
-
-if has("autocmd")
-	" Automatically unfold everything when opening a file
-	autocmd BufRead * normal zR
-
-	autocmd filetype python setlocal expandtab
-	autocmd filetype cs setlocal cindent
-endif
-
-if has("gui_running") 
-	set guifont=Consolas:h10
-	set lines=99999 columns=99999
-else
-	set t_Co=256
-endif
-set backspace=indent,eol,start
-"behave mswin
-
-" Mouse support for 
-" Must be one of: xterm, xterm2, netterm, dec, jsbterm, pterm
-
-" Makefile building
-set makeprg=make\ CXX=\"$HOME\/.vim/bin\/cc_args.py\ g++\"\ CCC=\"$HOME\/.vim/bin\/cc_args.py\ gcc\"
-			\
-"Not sure for windows!!!!!?
-map <C-b> :wa<CR>:make!<CR>
-"
-" Bash scripts
+" Shell scripts
 map <F6> :wa<CR> :!"%:p"<CR>
 
-" " Vim scripting
-nmap <silent> <leader>sv  :source $MYVIMRC<CR>
-nmap <silent> <leader>ev  :e $MYVIMRC<CR>
 
 hi StatusLine   ctermfg=15  "ctermbg=239
 hi StatusLineNC ctermfg=249 ctermbg=237
-
-function! GetBufferList()
-	redir =>buflist
-	silent! ls
-	redir END
-	return buflist
-endfunction
-
-function! ToggleList(bufname, pfx)
-	let buflist = GetBufferList()
-	for bufnum in map(filter(split(buflist, '\n'), 'v:val =~ "'.a:bufname.'"'), 'str2nr(matchstr(v:val, "\\d\\+"))')
-		if bufwinnr(bufnum) != -1
-			exec(a:pfx.'close')
-			return
-		endif
-	endfor
-	if a:pfx == 'l' && len(getloclist(0)) == 0
-		echohl ErrorMsg
-		echo "Location List is Empty."
-		return
-	endif
-	let winnr = winnr()
-
-	exec('botright '.a:pfx.'open')
-	if winnr() != winnr
-		wincmd p
-	endif
-endfunction
-
-map <silent> <leader>l :call ToggleList("Location List", 'l')<CR>
-map <silent> <leader>q :call ToggleList("Quickfix List", 'c')<CR>
-
 
 " Search completion with grep
 " nmap <C-F> :noautocmd vimgrep input("Enter search pattern\n") *<CR>
@@ -136,13 +63,9 @@ inoremap <expr> <CR> pumvisible() ? ("\<C-y>") : "\<C-g>u\<CR>"
 set completeopt=longest,menuone
 set conceallevel=2
 set concealcursor=inv
-"set path+=/usr/include
-"set path+=/usr/include/c++/4.6
-"set path+=$PWD/**
 
 " ctags
 set tags+=~/.vim/tags
-" au BufWritePost  *.c,*.cpp,*.h silent! !ctags -R &
 
 " Differation keybinding
 let g:whitespace_diff=1
