@@ -12,23 +12,6 @@ endif
 let mapleader = ","
 let maplocalleader = ","
 
-nnoremap <Esc><Esc> :w<CR>
-nnoremap <C-n> :NERDTreeTabsToggle<CR>
-
-" behave Y like D,E,C
-nnoremap Y y$
-
-" Enable movement in insert mode
-inoremap <C-k> <up>
-inoremap <C-j> <down>
-inoremap <C-h> <left>
-inoremap <C-l> <right>
-
-" Quick way of moving between windows
-nnoremap <C-k> <C-W>k
-nnoremap <C-j> <C-W>j
-nnoremap <C-h> <C-W>h
-nnoremap <C-l> <C-W>l
 
 " Move by screen line instead of logical line
 map j gj
@@ -249,6 +232,8 @@ function! WhiteDiffToggle()
 		set diffopt-=iwhite
 	endif
 endfunction
+
+source $HOME/vimrc_common
 
 if has('win32')
   " Avoid mswin.vim making Ctrl-v act as paste
