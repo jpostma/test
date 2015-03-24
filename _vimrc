@@ -1,3 +1,5 @@
+source $HOME/vimrc_common
+
 execute pathogen#interpose('bundle/{}')
 execute pathogen#helptags()
 
@@ -8,52 +10,13 @@ if has("autocmd")
     filetype plugin indent on
 endif
 
-
-let mapleader = ","
-let maplocalleader = ","
-
-
-" Move by screen line instead of logical line
-map j gj
-map k gk
-
-
 nnoremap <silent> <C-q> :q<CR>
 
 " hi TabLineSel term=standout ctermfg=White ctermbg=Yellow guifg=Black guibg=Yellow
 " let TabLineSel:ctermfg=White
 " nnoremap <silent> <leader>t :tabnew<CR>
 " nnoremap <silent> <leader>w :tabclose<CR>
-nnoremap <silent> <Esc> :let @/=""<CR>
-nnoremap  <leader>cd :cd %:p:h<CR>
 
-set cindent
-"set autoindent
-set ts=4
-set shiftwidth=4
-set nocompatible
-set ignorecase
-set smartcase
-set hlsearch
-set showcmd
-set wildmenu
-set wildmode=longest:full,full
-set incsearch
-set ruler
-set showmatch
-set matchtime=2
-set autowrite
-set switchbuf=split,useopen,usetab
-set number
-set noautochdir
-set hidden
-set wildignore=*/.git/*,*/.hg/*,*/.svn/*,*.o,tags        " Linux/MacOSX
-set lazyredraw
-set history=500
-set scrolloff=7
-set foldmethod=syntax
-set nobackup
-set noswapfile
 
 if has("autocmd")
 	" Automatically unfold everything when opening a file
@@ -74,30 +37,6 @@ set backspace=indent,eol,start
 
 " Mouse support for 
 " Must be one of: xterm, xterm2, netterm, dec, jsbterm, pterm
-set ttymouse=xterm2
-set mouse=a
-
-try
-		colorscheme skittles_berry
-catch
-	try
-		colorscheme mustang
-	catch
-		try
-			colorscheme desert256
-		catch
-		endtr
-	endtry
-endtry
-
-"special characters display
-set listchars=tab:>-,eol:<,nbsp:%,trail:-
-nnoremap <silent> <leader>h :if exists("g:syntax_on") <Bar> syntax off <Bar> else <Bar>syntax enable <Bar> endif<CR>
-nnoremap <silent> <leader>j :set wrap! wrap?<CR>
-nnoremap <silent> <leader>o :set list! list?<CR>
-nnoremap <silent> <leader>p :set hlsearch! hlsearch?<CR>
-noremap <silent> <leader>i :set number! number?<CR>
-
 
 " Makefile building
 set makeprg=make\ CXX=\"$HOME\/.vim/bin\/cc_args.py\ g++\"\ CCC=\"$HOME\/.vim/bin\/cc_args.py\ gcc\"
@@ -233,7 +172,6 @@ function! WhiteDiffToggle()
 	endif
 endfunction
 
-source $HOME/vimrc_common
 
 if has('win32')
   " Avoid mswin.vim making Ctrl-v act as paste

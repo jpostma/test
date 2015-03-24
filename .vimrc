@@ -1,53 +1,10 @@
+source $HOME/vimrc_common
+
 " execute pathogen#incubate()
 execute pathogen#interpose('bundle/{}')
 execute pathogen#helptags()
 syntax on
 filetype plugin indent on
-
-
-
-let mapleader = ","
-let maplocalleader = ","
-
-" Move by screen line instead of logical line
-map j gj
-map k gk
-
-
-nnoremap <silent> <C-q> :q<CR>
-
-" hi TabLineSel term=standout ctermfg=White ctermbg=Yellow guifg=Black guibg=Yellow
-" let TabLineSel:ctermfg=White
-" nnoremap <silent> <leader>t :tabnew<CR>
-" nnoremap <silent> <leader>w :tabclose<CR>
-nnoremap <silent> <leader>d :tabn<CR>
-noremap <silent> <leader>a :tabp<CR>
-nnoremap <silent> <Esc> :let @/=""<CR>
-
-set nocompatible
-set ignorecase
-set smartcase
-set hlsearch
-set showcmd
-set wildmenu
-set wildmode=longest:full,full
-set incsearch
-set ruler
-set showmatch
-set matchtime=2
-set autowrite
-set cindent
-set switchbuf=split,useopen,usetab
-set number
-set noautochdir
-set hidden
-set wildignore=*/.git/*,*/.hg/*,*/.svn/*,*.o,tags        " Linux/MacOSX
-set lazyredraw
-set history=500
-set scrolloff=7
-set foldmethod=syntax
-set nobackup
-set noswapfile
 
 if has("autocmd")
 	" Automatically unfold everything when opening a file
@@ -59,25 +16,7 @@ set t_Co=256
 
 " Mouse support for 
 " Must be one of: xterm, xterm2, netterm, dec, jsbterm, pterm
-set ttymouse=xterm2
-set mouse=a
-
-try
-	colorscheme mustang
-catch
-	try
-		colorscheme desert256
-	catch
-	endtr
-endtry
-
-"special characters display
-set listchars=tab:>-,eol:<,nbsp:%,trail:.
-nnoremap <silent> <leader>h :if exists("g:syntax_on") <Bar> syntax off <Bar> else <Bar>syntax enable <Bar> endif<CR>
-nnoremap <silent> <leader>j :set wrap! wrap?<CR>
-nnoremap <silent> <leader>o :set list! list?<CR>
-nnoremap <silent> <leader>p :set hlsearch! hlsearch?<CR>
-noremap <silent> <leader>i :set number! number?<CR>
+"
 
 
 " Makefile building
@@ -243,7 +182,6 @@ function! WhiteDiffToggle()
 	endif
 endfunction
 
-source $HOME/vimrc_common
 
 "Tab navigation
 nnoremap <C-t> :tabnew<CR>
