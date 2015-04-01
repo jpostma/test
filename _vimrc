@@ -16,15 +16,15 @@ hi StatusLineNC ctermfg=249 ctermbg=237
 " Search completion with grep
 " nmap <C-F> :noautocmd vimgrep input("Enter search pattern\n") *<CR>
 nnoremap <leader>k :call Vimgrep_Input()<CR>
-nnoremap <leader>K :silent exe 'vimgrep /' . expand("<cword>"). '/jPP **/*.cpp **/*.c **/*.h'<CR>
+nnoremap <leader>K :silent exe 'vimgrep /' . expand("<cword>"). '/jPP **/*'<CR>
 
-let user_inputsearchfilter = '**/*.cpp'
+let g:user_inputsearchfilter = '**/*.cpp'
 function! Vimgrep_Input()
 	call inputsave()
 	let userinput = input("Enter your search pattern\n")
 	call inputrestore()
 	" silent noautocmd exe 'lvimgrep /' . userinput . '/jg **/*'
-	silent exe 'vimgrep /' . userinput . '/jPP **/*.cpp **/*.c **/*.h'
+	silent exe 'vimgrep /' . userinput . '/jPP **/*'
 	copen 15
 endfunction
 
