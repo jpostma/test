@@ -102,6 +102,7 @@ if has('win32')
   source $VIMRUNTIME/mswin.vim
   nnoremap <C-V> <C-V>
   nnoremap <C-Y> <C-Y>
+  nnoremap <C-A> <C-A>
 endif
 
 "Tab navigation
