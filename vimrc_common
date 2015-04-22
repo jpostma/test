@@ -66,6 +66,8 @@ set mouse=a
 set listchars=tab:>-,eol:<,nbsp:%,trail:.
 set backspace=indent,eol,start
 
+let g:xml_syntax_folding=1
+
 " -- Colorschemes
 try
 	colorscheme skittles_berry
