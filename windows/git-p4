@@ -1,0 +1,3 @@
+#!/bin/sh
+
+c:\\Python27\\python "c:/program files (x86)/Git/libexec/git-core/git-p4.py" $@
