@@ -70,7 +70,7 @@ let g:xml_syntax_folding=1
 
 " -- Colorschemes
 try
-	colorscheme skittles_berry
+	colorscheme sol
 catch
 	try
 		colorscheme mustang
