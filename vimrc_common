@@ -33,6 +33,7 @@ nnoremap <silent> <leader>o :set list! list?<CR>
 nnoremap <silent> <leader>p :set hlsearch! hlsearch?<CR>
 noremap <silent> <leader>i :set number! number?<CR>
 
+
 " --- General settings ----------
 syntax on
 set cindent
@@ -135,3 +136,26 @@ endfunction
 
 map <silent> <leader>l :call ToggleList("Location List", 'l')<CR>
 map <silent> <leader>q :call ToggleList("Quickfix List", 'c')<CR>
+
+" Binary editing
+let b:binary=0
+function! BinaryEdit()
+	try
+		if !exists('b:binary')
+			let b:binary = 0
+		endif
+		if b:binary == 1
+			exec("%!xxd -r")
+			echo "Text editing the buffer"
+			let b:binary=0
+		else
+			exec("%!xxd")
+			echo "Binary editing the buffer"
+			let b:binary=1
+		endif
+	catch
+		echo "Failed to edit binary or text file: " v:exception
+	endtry
+endfunction()
+
+nnoremap <leader>bin :call BinaryEdit()<CR>
