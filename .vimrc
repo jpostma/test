@@ -112,9 +112,9 @@ let g:clang_complete_snippets = 1
 " let g:clang_library_path = '/usr/lib'
 set completefunc=ClangComplete
 " Differation keybinding
-let g:whitespace_diff=1
 nnoremap <silent> <Leader>df :call DiffToggle()<CR>
 nnoremap <silent> <Leader>dw :call WhiteDiffToggle()<CR>
+nnoremap <silent> <Leader>dc :call FillerDiffToggle()<CR>
 
 " Define a function called DiffToggle.
 function! DiffToggle()
@@ -127,6 +127,7 @@ function! DiffToggle()
 	endif
 endfunction
 
+let g:whitespace_diff=1
 function! WhiteDiffToggle()
 	if g:whitespace_diff
 		echo "Diff off"
@@ -139,6 +140,18 @@ function! WhiteDiffToggle()
 	endif
 endfunction
 
+let g:filler_diff=1
+function! FillerDiffToggle()
+	if g:filler_diff
+		echo "Diff-filler off"
+		let g:filler_diff=0
+		set diffopt+=filler
+	else
+		echo "Diff-filler on"
+		let g:filler_diff=1
+		set diffopt-=filler
+	endif
+endfunction
 
 "Tab navigation
 nnoremap <C-t> :tabnew<CR>
