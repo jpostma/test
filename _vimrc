@@ -103,11 +103,11 @@ function! FillerDiffToggle()
 	if g:filler_diff
 		echo "Diff-filler off"
 		let g:filler_diff=0
-		set diffopt+=filler
+		set diffopt-=filler
 	else
 		echo "Diff-filler on"
 		let g:filler_diff=1
-		set diffopt-=filler
+		set diffopt+=filler
 	endif
 endfunction
 
