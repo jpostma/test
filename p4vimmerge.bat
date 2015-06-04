@@ -1,3 +1,5 @@
+@echo off
+echo "running vimmerge: " %*
 SET base=%1
 SET theirs=%2
 SET yours=%3
