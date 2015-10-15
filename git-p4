@@ -1,0 +1,5 @@
+#!/bin/sh
+
+#echo >&2 "fatal: git was built without support for `basename $0` (NO_PYTHON=YesPlease)."
+#exit 128
+c:\\Python27\\python.exe "c:\Program Files (x86)\Git\libexec\git-core\git-p4.py" $@
