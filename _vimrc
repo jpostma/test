@@ -32,8 +32,8 @@ endfunction
 " Minibuf explorer
 nnoremap <Leader>4 :MBEbn<cr>
 nnoremap <Leader>3 :MBEbp<cr>
-let g:miniBufExplAutoStart = 1
-let g:miniBufExplorerAutoStart = 1
+let g:miniBufExplAutoStart = 0
+let g:miniBufExplorerAutoStart = 0
 
 
 " Ctrl-p search caching
