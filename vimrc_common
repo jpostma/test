@@ -27,7 +27,19 @@ nnoremap <silent> <Esc> :let @/=""<CR>
 nnoremap  <leader>cd :cd %:p:h<CR>
 
 "special characters display
-nnoremap <silent> <leader>h :if exists("g:syntax_on") <Bar> syntax off <Bar> else <Bar>syntax enable <Bar> endif<CR>
+nnoremap <silent> <leader>h  :call SyntaxToggle()<CR> 
+function! SyntaxToggle()
+	if exists("g:syntax_on")
+		echo "syntax off"
+		sleep 500m
+		syntax off
+	else
+		echo "syntax on"
+		sleep 500m
+	   	syntax enable
+	endif
+endfunction
+		
 nnoremap <silent> <leader>j :set wrap! wrap?<CR>
 nnoremap <silent> <leader>o :set list! list?<CR>
 nnoremap <silent> <leader>p :set hlsearch! hlsearch?<CR>
