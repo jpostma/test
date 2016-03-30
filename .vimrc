@@ -48,19 +48,19 @@ nnoremap <leader>bash :ConqueTermSplit bash<cr>
 " Minibuf explorer
 nnoremap <Leader>4 :MBEbn<cr>
 nnoremap <Leader>3 :MBEbp<cr>
-let g:miniBufExplAutoStart = 1
-let g:miniBufExplorerAutoStart = 1
+let g:miniBufExplAutoStart = 0
+let g:miniBufExplorerAutoStart = 0
 
 
 " Ctrl-p search caching
 let g:ctrlp_show_hidden = 1
 let g:ctrlp_max_files = 0
 let g:ctrlp_working_path_mode = 'rwa'
-let g:ctrlp_cmd = 'CtrlPMixed'
+let g:ctrlp_cmd = 'CtrlPMRU'
 let g:ctrlp_use_caching = 1
 let g:ctrlp_clear_cache_on_exit = 0
 let g:ctrlp_cache_dir = $HOME.'/.cache/ctrlp'
-let g:ctrlp_match_window = 'bottom,order:btt,min:1,max:20,results:100'
+let g:ctrlp_match_window = 'bottom,order:btt,min:1,max:20,results:1000'
 
 "EasyMotion
 map <Leader> <Plug>(easymotion-prefix)
