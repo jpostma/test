@@ -36,10 +36,10 @@ function! SyntaxToggle()
 	else
 		echo "syntax on"
 		sleep 500m
-	   	syntax enable
+		syntax enable
 	endif
 endfunction
-		
+
 nnoremap <silent> <leader>j :set wrap! wrap?<CR>
 nnoremap <silent> <leader>o :set list! list?<CR>
 nnoremap <silent> <leader>p :set hlsearch! hlsearch?<CR>
@@ -83,7 +83,11 @@ let g:xml_syntax_folding=1
 
 " -- Colorschemes
 try
-	colorscheme sol
+	if has("gui_running") 
+		colorscheme sol
+	else
+		colorscheme sol-term
+	endif
 catch
 	try
 		colorscheme mustang

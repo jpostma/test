@@ -1,7 +1,7 @@
 execute pathogen#interpose('bundle/{}')
 execute pathogen#helptags()
 
-source $HOME/vimrc_common
+source ~/vimrc_common
 
 " Mouse support for 
 " Must be one of: xterm, xterm2, netterm, dec, jsbterm, pterm
@@ -157,3 +157,7 @@ endfunction
 nnoremap <C-t> :tabnew<CR>
 nnoremap <C-tab> :tabnext<CR>
 nnoremap <C-S-tab> :tabprevious<CR>
+
+if !has("gui_running") 
+	colorscheme sol-term
+endif
