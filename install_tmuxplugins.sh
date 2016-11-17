@@ -3,7 +3,7 @@ echo "Startup script for tmux in "
 
 
 
-tmux_zoom_path="https://github.com/jipumarino/tmux-zoom.git"
+#tmux_zoom_path="
 
 
 
@@ -14,5 +14,10 @@ fi
 
 if ! [ -e "$HOME/.tmux/scripts/tmux-zoom" ]; then
 	cd "$HOME/.tmux/scripts/"
-	git clone $tmux_zoom_path
+	git clone "https://github.com/jipumarino/tmux-zoom.git"
+fi
+
+if ! [ -e "$HOME/.tmux/scripts/tmux-powerline" ]; then
+	cd "$HOME/.tmux/scripts/"
+	git clone "https://github.com/erikw/tmux-powerline.git"
 fi
