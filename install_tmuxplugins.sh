@@ -1,6 +1,11 @@
-#!/bin/shz
-echo "Startup script for tmux in "z
+#!/bin/sh
+echo "Startup script for tmux in "
 
+if [ -z ${EDITOR+x} ]
+then
+   	echo "Rember to set the correct EDITOR={favourite editor} first"
+	exit 1
+fi
 
 if ! [ -e "$HOME/.tmux/scripts" ]; then
 	echo "I must download scripts now!!!"
@@ -31,8 +36,8 @@ git submodule update --init --recursive
 
 cd "$HOME/.tmux/scripts/tmuxinator"
 git submodule update --init --recursive
-echo Add 'soure "/home/johan/.tmux/scripts/tmuxinator/completion/tmuxinator.[zsh/fish/bash]"'
+echo Remember to add 'soure "/home/johan/.tmux/scripts/tmuxinator/completion/tmuxinator.[zsh/fish/bash]"' to your shell environment
 
 if ! [ -e /usr/bin/gem ]; then
-	echo "Couldn't find gem, you would probably need to install ruby/ruby-dev"
-fi;
+	echo "Couldn't find gem, you would probably need to install ruby >= 2.3/ruby-dev >= 2.3"
+fi
