@@ -1,0 +1,28 @@
+#!/bin/sh
+# chkconfig: 345 90 20
+# description: Perforce Server
+
+P4ROOT=/var/local/perforce
+P4JOURNAL=/var/local/perforce/journal
+P4LOG=/var/local/perforce/logs/p4err
+P4PORT=1666
+P4USER=jpostma
+P4PASSWD=password
+
+case "$1" in
+start)
+p4d -r $P4ROOT -J $P4JOURNAL -L $P4LOG -p $P4PORT -d
+;;
+stop)
+p4 -p$P4PORT -u$P4USER -P$P4PASSWD admin stop
+;;
+restart)
+p4 -p$P4PORT -u$P4USER -P$P4PASSWD admin stop
+p4d -r $P4ROOT -J $P4JOURNAL -L $P4LOG -p $P4PORT -d
+;;
+*)
+printf "Usage: %s {start|stop|restart}\n" "$0"
+exit 1
+esac
+
+exit 0
