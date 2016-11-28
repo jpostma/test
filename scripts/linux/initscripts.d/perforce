@@ -1,6 +1,18 @@
 #!/bin/sh
 # chkconfig: 345 90 20
-# description: Perforce Server
+# description: Perforce
+
+### BEGIN INIT INFO
+# Provides: perforce
+# Required-Start: $local_fs $network $remote_fs
+# Required-Stop: $local_fs $network $remote_fs
+# Default-Start:  2 3 4 5
+# Default-Stop: 0 1 6
+# Short-Description: start and stop service perforce
+# Description: perforce
+### END INIT INFO
+
+. /lib/lsb/init-functions
 
 P4ROOT=/var/local/perforce
 P4JOURNAL=/var/local/perforce/journal
