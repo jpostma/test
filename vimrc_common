@@ -111,7 +111,12 @@ if has("autocmd")
 endif
 
 if has("gui_running") 
-	set guifont=Consolas:h10
+	if has('gui_win32')
+		set guifont=DejaVu_Sans_Mono:h10
+	else 
+		set guifont=DejaVu\ Sans\ Mono:h10
+	endif
+
 	set lines=99999 columns=99999
 else
 	set t_Co=256
