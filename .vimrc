@@ -27,7 +27,7 @@ hi StatusLineNC ctermfg=249 ctermbg=237
 " Search completion with grep
 " nmap <C-F> :noautocmd vimgrep input("Enter search pattern\n") *<CR>
 nnoremap <leader>k :call Vimgrep_Input()<CR>
-nnoremap <leader>K :silent exe 'vimgrep /' . expand("<cword>"). '/jPP **/*.cpp **/*.c **/*.h'<CR>
+nnoremap <leader>K :silent exe 'vimgrep /' . expand("<cword>"). '/jPP **/*.cpp **/*.c **/*.h **/*.py **/*.txt **/*.json **/*.hpp **/*.cs'<CR>
 
 let user_inputsearchfilter = '**/*.cpp'
 function! Vimgrep_Input()
@@ -98,20 +98,20 @@ set tags+=~/.vim/tags
 " au BufWritePost  *.c,*.cpp,*.h silent! !ctags -R &
 
 " clang_complete
-let g:clang_user_options='|| exit 0'
-let g:clang_complete_auto = 1
-let g:clang_complete_copen = 1
-" let g:clang_use_library = 0
-let g:clang_auto_select = 1
-let g:clang_snippets=1
-let g:clang_snippets_engine = "clang_complete"
-let g:clang_conceal_snippets = 1
-let g:clang_complete_snippets = 1
-
-
-" let g:clang_library_path = '/usr/lib'
-set completefunc=ClangComplete
-" Differation keybinding
+" let g:clang_user_options='|| exit 0'
+" let g:clang_complete_auto = 1
+" let g:clang_complete_copen = 1
+" " let g:clang_use_library = 0
+" let g:clang_auto_select = 1
+" let g:clang_snippets=1
+" let g:clang_snippets_engine = "clang_complete"
+" let g:clang_conceal_snippets = 1
+" let g:clang_complete_snippets = 1
+"
+"
+"" let g:clang_library_path = '/usr/lib'
+"set completefunc=ClangComplete
+"Differation keybinding
 nnoremap <silent> <Leader>df :call DiffToggle()<CR>
 nnoremap <silent> <Leader>dw :call WhiteDiffToggle()<CR>
 nnoremap <silent> <Leader>dc :call FillerDiffToggle()<CR>
@@ -161,3 +161,6 @@ nnoremap <C-S-tab> :tabprevious<CR>
 if !has("gui_running") 
 	colorscheme sol-term
 endif
+
+autocmd FileType python map <buffer> <F9> :w<CR>:exec '!python3' shellescape(@%, 1)<CR>
+autocmd FileType python imap <buffer> <F9> <esc>:w<CR>:exec '!python3' shellescape(@%, 1)<CR>
