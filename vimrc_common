@@ -1,12 +1,12 @@
-let mapleader = ","
-let maplocalleader = ","
+let g:mapleader = ","
+let g:maplocalleader = ","
 "
 " Move by screen line instead of logical line
 map j gj
 map k gk
 
 nnoremap <Esc><Esc> :w<CR>
-nnoremap <C-n> :NERDTreeTabsToggle<CR>
+nnoremap <C-n> :NERDTreeToggle<CR>
 
 " behave Y like D,E,C
 nnoremap Y y$
@@ -74,7 +74,9 @@ set scrolloff=7
 set foldmethod=syntax
 set nobackup
 set noswapfile
-set ttymouse=xterm2
+if !has('nvim')
+	set ttymouse=xterm2
+endif
 set mouse=a
 set listchars=tab:>-,eol:<,nbsp:%,trail:.
 set backspace=indent,eol,start
@@ -110,7 +112,8 @@ if has("autocmd")
 	autocmd filetype cs setlocal cindent
 endif
 
-if has("gui_running") 
+set guifont=DejaVu_Sans_Mono:h10
+if has("gui_running") || has('GuiLoaded')
 	if has('gui_win32')
 		set guifont=DejaVu_Sans_Mono:h10
 	else 
@@ -180,3 +183,53 @@ function! BinaryEdit()
 endfunction()
 
 nnoremap <leader>bin :call BinaryEdit()<CR>
+
+
+
+function! AdjustFontSize(amount)
+    "if !has("gui_running")
+        " echoerr "You need to run a GUI version of Vim to use this function."
+    " endif
+
+    let l:minfontsize = 6
+    let l:maxfontsize = 16
+
+    " Windows and macOS &guifont: Hack\ NF:h10:cANSI
+    " Linux &guifont: Hack\ Nerd\ Font\ Mono\ Regular\ 10
+    
+	" A multiplatform pattern for Linux, Windows, and macOS:
+	" \v            very magical.
+    " (^\D{-1,})    Capture group 1 = [Anchored at the start of the string, match any character that is not [0-9] 1 or more times non-greedy].
+    " (\d+)         Capture group 2 = [match [0-9] 1 or more times].
+    " (\D*$)        Capture group 3 = [match any character that is not [0-9] 0 or more times to the end of the string].
+    let l:pattern = '\v(^\D{-1,})(\d+)(\D*$)'
+
+    " Break the font string into submatches.
+    let l:matches = matchlist(&guifont, l:pattern)
+    let l:start = l:matches[1]
+    let l:size = l:matches[2]
+    let l:end = l:matches[3]
+
+    let newsize = l:size + a:amount
+    if (newsize >= l:minfontsize) && (newsize <= l:maxfontsize)
+        let newfont = l:start . newsize . l:end
+        let &guifont = newfont
+    endif
+endfunction
+
+nnoremap <silent> <C--> :call AdjustFontSize(-1)<CR>
+inoremap <silent> <C--> <Esc>:call AdjustFontSize(-1)<CR>
+vnoremap <silent> <C--> <Esc>:call AdjustFontSize(-1)<CR>
+cnoremap <silent> <C--> <Esc>:call AdjustFontSize(-1)<CR>
+onoremap <silent> <C--> <Esc>:call AdjustFontSize(-1)<CR>
+
+nnoremap <silent> <C-S-=> :call AdjustFontSize(1)<CR>
+inoremap <silent> <C-S-=> <Esc>:call AdjustFontSize(1)<CR>
+vnoremap <silent> <C-S-=> <Esc>:call AdjustFontSize(1)<CR>
+cnoremap <silent> <C-S-=> <Esc>:call AdjustFontSize(1)<CR>
+onoremap <silent> <C-S-=> <Esc>:call AdjustFontSize(1)<CR>
+
+" Hold Control + scroll mouse-wheel to zoom text.
+" NOTE: This event only works for Linux and macOS. SEE: :h scroll-mouse-wheel
+map <silent> <C-ScrollWheelDown> :call AdjustFontSize(-1)<CR>
+map <silent> <C-ScrollWheelUp> :call AdjustFontSize(1)<CR>
