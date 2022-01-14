@@ -23,6 +23,7 @@ Plug 'hrsh7th/nvim-cmp'
 Plug 'mhinz/vim-startify'
 
 Plug 'folke/tokyonight.nvim', { 'branch': 'main' }
+Plug 'notpratheek/vim-sol'
 
 Plug 'vim-airline/vim-airline'
 
@@ -149,7 +150,7 @@ end
 EOF
 
 if !has('win32')
-nnoremap <leader>t :split term://zsh<CR>
+	nnoremap <leader>t :split term://zsh<CR>
 endif
 
 packadd termdebug

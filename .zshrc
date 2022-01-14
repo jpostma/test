@@ -92,3 +92,7 @@ alias lsa='ls -l'
 #
 #less aliases
 alias less='less -R'
+
+ZSH_THEME="powerlevel10k/powerlevel10k" >> ~/.zshrc
+plugins=(git  z zsh-autosuggestions copyfile copydir copybuffer colorize history sudo)
+
