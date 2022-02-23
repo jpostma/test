@@ -110,6 +110,10 @@ if has("autocmd")
 
 	autocmd filetype python setlocal expandtab
 	autocmd filetype cs setlocal cindent
+
+
+
+	autocmd filetype python nnoremap <buffer> <F5> :!python %<CR>
 endif
 
 set guifont=MesloLGM\ Nerd\ Font
